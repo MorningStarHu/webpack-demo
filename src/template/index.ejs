@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>千立云</title>
+		<link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[0] %>">
+        <link rel="icon" href="<%= webpackConfig.output.publicPath%>images/qianli.ico" type="image/x-icon">
+        <script>
+            window.onerror = () => {
+                return true;
+            };
+        </script>
+	</head>
+	<body>
+		<div id="app"></div>
+        <iframe id="download_frame" src="" style="display: none;"></iframe>
+        <!-- <script src='http://webapi.amap.com/maps?v=1.4.6&key=9add5e6d9843267ca60e5d4e02317cca'></script>
+        <script src="https://webapi.amap.com/loca?key=9add5e6d9843267ca60e5d4e02317cca"></script>
+        <script src="http://webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+        <script src="http://api.map.baidu.com/getscript?v=2.0&ak=6XtNT1QSBdGph4kdcfcmResI"></script>
+        <script src="http://api.map.baidu.com/library/InfoBox/1.2/src/InfoBox_min.js?v=2.0&ak=6XtNT1QSBdGph4kdcfcmResI"></script> -->
+        <script src="<%= webpackConfig.output.publicPath%>api.js"></script>
+		<script src="<%= htmlWebpackPlugin.files.js[0] %>"></script>
+		<script src="<%= htmlWebpackPlugin.files.js[1] %>"></script>
+	</body>
+</html>
