@@ -12,7 +12,7 @@ const fs = require('fs');
 
 module.exports = merge(webpackBaseConfig, {
   mode: 'development',
-  devtool: 'cheap-module-eval-source-map', // devtool由webpack直接提高，将打包后的文件中的错误映射到最初对应的文件中，便于调试
+  devtool: '#source-map', // devtool由webpack直接提高，将打包后的文件中的错误映射到最初对应的文件中，便于调试
   output: {
     publicPath: '/assets/',
     filename: '[name].js',

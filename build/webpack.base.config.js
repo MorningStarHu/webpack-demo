@@ -2,7 +2,8 @@ const path = require('path'); // node.js 中的基本包，用于处理路径
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+
 
 
 const devMode = process.env.NODE_ENV !== 'production';
@@ -25,31 +26,36 @@ module.exports = {
       {
         test: /\.css$/,   // css 处理
         use: [
-          // {
-          //   loader: MiniCssExtractPlugin.loader,
-          //   options: {
-          //     hmr:devMode
-          //   },
-          // },
-          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr:devMode
+            },
+          },
           'css-loader', 
           'postcss-loader'
         ]
       },
       {
         test: /\.js$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          },
+        
+        }         
       },
       {
         test: /\.less$/,   // less 处理
         use: [
-          'style-loader',
-          // {
-          //   loader: MiniCssExtractPlugin.loader,
-          //   options: {
-          //     hmr:devMode
-          //   },
-          // },  // 这样相当于抽离成一个css文件， 如果希望抽离成分别不同的css, 需要再引入MiniCssExtractPlugin，再配置
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr:devMode
+            },
+          },  // 这样相当于抽离成一个css文件， 如果希望抽离成分别不同的css, 需要再引入MiniCssExtractPlugin，再配置
           'css-loader', // css-loader 用来解析@import这种语法
           'less-loader',
           'postcss-loader'          
@@ -89,6 +95,9 @@ module.exports = {
       }
     ],
   }),
-  new CleanWebpackPlugin()
+  // new CleanWebpackPlugin(),
+  new MiniCssExtractPlugin(),
+  // new BundleAnalyzerPlugin()
+
   ]
 }
