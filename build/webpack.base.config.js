@@ -21,7 +21,20 @@ module.exports = {
     rules: [
       {
         test: /.vue$/,
-        loader: 'vue-loader'
+        use: [
+          {
+              loader: 'vue-loader',
+              options: {
+                  
+              }
+          },
+          {
+              loader: 'iview-loader',
+              options: {
+                  prefix: false
+              }
+          }
+      ]
       },
       {
         test: /\.css$/,   // css 处理
@@ -96,7 +109,10 @@ module.exports = {
     ],
   }),
   // new CleanWebpackPlugin(),
-  new MiniCssExtractPlugin(),
+  new MiniCssExtractPlugin({
+    filename: devMode ? '[name].css' : '[name].[hash].css',
+    chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+  }),
   // new BundleAnalyzerPlugin()
 
   ]

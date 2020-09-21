@@ -1,10 +1,10 @@
 <template>
     <div>
       <Table stripe :columns="columns1" :data="data1"></Table>
-      <Button type="primary">xiaohucesih</Button>
-     <TimePicker type="timerange" placement="bottom-end" placeholder="Select time" style="width: 168px"></TimePicker>
+      <Button type="primary">xiassa ohucesih</Button>
+     <TimePicker type="timerange" placement="bottom-end" placeholder="Seladasect time" style="width: 168px"></TimePicker>
 
-     <span>sdfrfesdfd</span>
+     <span>测试ss测试小sssdddaadassas虎dasfdddes</span>
     </div>
 </template>
 <script>
@@ -13,7 +13,6 @@
     }
 </script>
 
-</template>
 <script>
     export default {
         data () {

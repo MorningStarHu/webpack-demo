@@ -19,12 +19,11 @@ module.exports = merge(webpackBaseConfig, {
     chunkFilename: '[name].chunk.js'
   },
     plugins: [
-        new MiniCssExtractPlugin({
-          // Options similar to the same options in webpackOptions.output
-          // both options are optional
-          filename: "[name].css",
-          chunkFilename: "[id].css"
-        }),
+        // new MiniCssExtractPlugin({
+        //   // Options similar to the same options in webpackOptions.output
+        //   // both options are optional
+        //   filename: '[name].css',
+        // }),
         new HTMLWebpackPlugin({
           filename: '../index.html',
           template: './src/template/index.ejs',

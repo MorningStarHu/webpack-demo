@@ -39,6 +39,12 @@ module.exports = merge(webpackBaseConfig, {
           minChunks: 2,         // 使用多少次以上抽离抽离
           chunks: 'initial'     // 从什么地方开始,刚开始
         },
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
+        },
         vendor: {
           name: 'vendors',
           priority: 1,          // 增加权重, (先抽离第三方)
@@ -58,10 +64,9 @@ module.exports = merge(webpackBaseConfig, {
       template: './src/template/index.ejs',
       inject: false
     }),
-    new MiniCssExtractPlugin({
-      filename: "[name].[hash].css",
-      chunkFilename: "[id].[hash].css"
-    }),
+    // new MiniCssExtractPlugin({
+    //   filename: '[name].css',
+    // }),
 
     new webpack.DefinePlugin({
       'process.env': {
